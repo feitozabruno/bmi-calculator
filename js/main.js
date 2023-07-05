@@ -11,6 +11,7 @@ const welcome = document.querySelector(".welcome-calculate");
 const result = document.querySelector(".calculate");
 const resultText = document.querySelector(".bmi strong");
 const healthy = document.querySelector(".bmi-snippet p strong");
+const notHealthy = document.querySelector(".bmi-snippet p span");
 
 radioMetric.addEventListener("click", () => {
   if (radioMetric.checked) {
@@ -68,6 +69,7 @@ function showResult() {
 
     resultText.innerText = calc > 999 ? "..." : calc.toFixed(2);
     healthy.innerText = calculateIdealWeight(height);
+    notHealthy.innerText = calc > 29.99 ? "not healthy" : "healthy";
   } else {
     showWelcome();
   }
