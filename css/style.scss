@@ -1,0 +1,708 @@
+@use "variables";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+}
+
+body {
+  overflow-y: overlay;
+}
+
+body,
+input {
+  font-size: 1.6rem;
+  font-family: "Inter", sans-serif;
+  --webkit-font-smoothing: antialiased;
+}
+
+:focus {
+  outline: 0;
+  box-shadow: 0 0 0 2px variables.$brand;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  color: variables.$headline;
+  line-height: 110%;
+  font-style: 600;
+}
+
+p,
+span,
+label {
+  color: variables.$paragraph;
+  line-height: 150%;
+}
+
+.gradient-hero {
+  position: absolute;
+  top: 1px;
+  left: -11.5rem;
+  z-index: -999;
+
+  width: 978px;
+  height: 737px;
+
+  border-radius: 0px 0px 35px 35px;
+  background: linear-gradient(135deg, #fff 10%, #d6e6fe 100%);
+}
+
+.container {
+  max-width: 116rem;
+  padding-inline: 4rem;
+  margin: 0 auto;
+  position: relative;
+}
+
+header {
+  padding-top: 7.5rem;
+  padding-bottom: 2.8rem;
+}
+
+main {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6.5rem;
+  position: relative;
+  gap: 3.2rem;
+
+  .snippet {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+    width: 56.4rem;
+    margin-top: 10rem;
+
+    h1 {
+      font-size: variables.$heading-xl;
+      font-weight: 600;
+    }
+
+    p {
+      color: variables.$paragraph;
+    }
+  }
+
+  .calculator {
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
+
+    padding: 3.2rem;
+    width: 56.4rem;
+    background: variables.$white;
+
+    border-radius: 16px;
+    box-shadow: 16px 32px 56px 0px rgba(143, 174, 207, 0.25);
+
+    .units {
+      display: grid;
+      gap: 2.4rem;
+      grid-template-columns: repeat(2, 1fr);
+
+      .checkbox-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 2.4rem;
+        position: relative;
+
+        input {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 2.4rem;
+          height: 2.4rem;
+          opacity: 0;
+
+          &:checked + label::before {
+            border: 1px solid transparent;
+            background-image: url("data:image/svg+xml,%3Csvg width='31' height='31' viewBox='0 0 31 31' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='15.5' cy='15.5' r='15.5' fill='%23345FF6' fill-opacity='0.15'/%3E%3Ccircle cx='15.5' cy='15.5' r='7.5' fill='%23345FF6'/%3E%3C/svg%3E%0A");
+          }
+
+          &:focus + label::before {
+            outline: 0;
+            box-shadow: 0 0 0 2px variables.$brand;
+          }
+        }
+
+        label {
+          display: flex;
+          align-items: center;
+          gap: 1.8rem;
+
+          color: variables.$headline;
+          font-weight: 600;
+
+          &::before {
+            content: "";
+            width: 2.4rem;
+            height: 2.4rem;
+            border: 1px solid variables.$border;
+            border-radius: 50%;
+            background-position: center;
+            z-index: 999;
+          }
+
+          &:hover::before {
+            border-color: variables.$brand;
+          }
+        }
+      }
+    }
+
+    .calculator-metric {
+      display: flex;
+      gap: 2.4rem;
+
+      .dimensions-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+
+        label {
+          color: variables.$paragraph;
+          font-size: variables.$body-s;
+        }
+
+        .data {
+          display: flex;
+          padding: 2rem 2.4rem;
+          align-items: center;
+          gap: 2.4rem;
+          align-self: stretch;
+
+          border-radius: 12px;
+          border: 1px solid variables.$border;
+
+          &:focus-within {
+            border-color: variables.$brand;
+          }
+
+          input {
+            border: none;
+            margin: 0;
+            width: 100%;
+
+            font-size: 2.4rem;
+            font-weight: 600;
+            letter-spacing: -1.2px;
+
+            &:focus {
+              outline: 0;
+              box-shadow: 0 0 0 0px variables.$brand;
+            }
+          }
+
+          span {
+            font-size: variables.$heading-m;
+            font-weight: 600;
+            color: variables.$brand;
+          }
+        }
+      }
+    }
+  }
+
+  .calculator-imperial {
+    .height-and-weight {
+      display: flex;
+      flex-direction: column;
+
+      label {
+        color: variables.$paragraph;
+        font-size: variables.$body-s;
+        margin-bottom: 8px;
+      }
+
+      .dimensions-wrapper:nth-child(2) {
+        margin-bottom: 2.4rem;
+      }
+
+      .dimensions-wrapper {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.8rem;
+
+        .data-container {
+          display: flex;
+          padding: 2rem 2.4rem;
+          align-items: center;
+          gap: 2.4rem;
+          align-self: stretch;
+
+          border-radius: 12px;
+          border: 1px solid variables.$border;
+
+          &:focus-within {
+            border-color: variables.$brand;
+          }
+
+          input {
+            border: none;
+            margin: 0;
+            width: 100%;
+
+            font-size: 2.4rem;
+            font-weight: 600;
+            letter-spacing: -1.2px;
+
+            &:focus {
+              outline: 0;
+              box-shadow: none;
+            }
+          }
+
+          span {
+            font-size: variables.$heading-m;
+            font-weight: 600;
+            color: variables.$brand;
+          }
+        }
+      }
+    }
+  }
+
+  .hide {
+    display: none !important;
+  }
+
+  .welcome-calculate {
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+    padding: 3.2rem;
+    border-radius: 16px 999px 999px 16px;
+    background: linear-gradient(90deg, #345ff6 0%, #587dff 100%);
+
+    h2 {
+      color: variables.$white;
+      font-size: variables.$heading-m;
+      font-weight: 600;
+    }
+
+    p {
+      color: variables.$white;
+      font-size: variables.$heading-s;
+    }
+  }
+
+  .calculate {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.4rem;
+    padding: 3.2rem;
+    border-radius: 16px 999px 999px 16px;
+    background: linear-gradient(90deg, #345ff6 0%, #587dff 100%);
+
+    .bmi {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+
+      span {
+        color: variables.$white;
+        font-weight: 600;
+      }
+
+      strong {
+        color: variables.$white;
+        font-size: variables.$heading-xl;
+      }
+    }
+
+    .bmi-snippet {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      p {
+        color: variables.$white;
+        font-size: variables.$body-s;
+        line-height: 150%;
+      }
+    }
+  }
+}
+
+main::after {
+  content: "";
+  position: absolute;
+  right: 27px;
+  bottom: -300px;
+  display: block;
+  width: 8.5rem;
+  height: 20rem;
+  background-size: contain;
+  background-image: url("data:image/svg+xml,%3Csvg width='87' height='202' viewBox='0 0 87 202' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M83.4298 1C91.2613 42.6999 85.7395 141.08 1 201' stroke='%23ACC1DE'/%3E%3C/svg%3E%0A");
+}
+
+img.sushiman {
+  display: none;
+}
+
+section.your-result {
+  margin-top: 15rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 11rem;
+
+  .healthy-tips {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3.5rem;
+    margin-top: 15rem;
+
+    h2 {
+      font-size: variables.$heading-l;
+    }
+  }
+}
+
+section.tips {
+  max-width: 139.2rem;
+  margin: 0 auto;
+  margin-top: 9.6rem;
+  padding: 7.2rem 11.7rem 9.6rem;
+  border-radius: 35px;
+  background: linear-gradient(
+    135deg,
+    rgba(214, 230, 254, 0.1) 10%,
+    rgba(214, 230, 254, 0.25) 100%
+  );
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3.2rem;
+
+    .card {
+      img {
+        margin-bottom: 4.5rem;
+      }
+
+      h3 {
+        margin-bottom: 2.4rem;
+        font-size: variables.$heading-m;
+      }
+    }
+  }
+}
+
+section.bmi-limitations {
+  display: grid;
+  grid-template-areas:
+    "A A B"
+    "C D E"
+    "F F F";
+  gap: 3.2rem;
+  padding-block: 12rem;
+
+  .resume {
+    margin-top: 3.2rem;
+    max-width: 56.4rem;
+  }
+
+  .cols {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 36.5rem;
+    padding: 3.2rem;
+    border-radius: 16px;
+    background: variables.$white;
+    box-shadow: 16px 32px 56px 0px rgba(143, 174, 207, 0.25);
+
+    div {
+      display: flex;
+      align-items: center;
+      gap: 1.6rem;
+    }
+  }
+
+  .col-a {
+    grid-area: A;
+  }
+  .col-b {
+    grid-area: B;
+    margin-left: -10rem;
+  }
+  .col-c {
+    grid-area: C;
+    width: 36.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .col-d {
+    grid-area: D;
+  }
+  .col-e {
+    grid-area: E;
+  }
+  .col-f {
+    grid-area: F;
+  }
+
+  .last-line {
+    display: flex;
+    justify-content: center;
+    gap: 3.2rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .gradient-hero {
+    width: 100%;
+    height: 64rem;
+    top: 0;
+    left: 0;
+  }
+
+  img.sushiman {
+    display: none;
+  }
+
+  .container {
+    max-width: 76.8rem;
+    padding-inline: 4rem;
+    position: static;
+
+    header {
+      text-align: center;
+      padding: 3.2rem 0 4rem;
+    }
+  }
+
+  main {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+
+    &::after {
+      display: none;
+    }
+
+    .snippet {
+      width: 100%;
+      gap: 2.4rem;
+      margin-top: 0;
+
+      h1 {
+        font-size: variables.$heading-l;
+        text-align: center;
+      }
+    }
+
+    .calculator {
+      width: 100%;
+    }
+  }
+
+  section.your-result {
+    gap: 4rem;
+    margin-top: 9.6rem;
+
+    img {
+      width: 43.5rem;
+      margin-left: -115px;
+    }
+
+    .healthy-tips {
+      margin-top: 0;
+
+      h2 {
+        font-size: 3.2rem;
+      }
+
+      p {
+        text-align: justify;
+      }
+    }
+  }
+
+  section.tips {
+    padding: 0;
+    padding-block: 6rem;
+
+    .container {
+      flex-direction: column;
+      gap: 4rem;
+
+      .card {
+        display: flex;
+        gap: 4rem;
+
+        img {
+          margin-bottom: 0;
+        }
+
+        div {
+          display: flex;
+          gap: 2.4rem;
+          flex-direction: column;
+
+          h3 {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+
+  section.bmi-limitations {
+    grid-template-areas:
+      "A A"
+      "B D"
+      "F F"
+      "E E";
+    grid-template-columns: 1fr 1fr;
+    gap: 2.4rem 1.5rem;
+    padding-block: 9.6rem;
+
+    .resume {
+      display: flex;
+      flex-direction: column;
+      gap: 3.2rem;
+      max-width: 100%;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      margin-top: 0;
+    }
+
+    .col-b {
+      grid-area: B;
+      margin-left: 0;
+      z-index: 2;
+    }
+
+    .col-c {
+      display: none;
+    }
+
+    .col-d {
+      z-index: 3;
+    }
+
+    .col-e {
+      z-index: 5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .col-f {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      z-index: 4;
+    }
+  }
+}
+
+@media (max-width: 650px) {
+  .gradient-hero {
+    width: 0rem;
+    height: 64rem;
+    display: none;
+  }
+
+  img.sushiman {
+    display: block;
+    width: 100%;
+  }
+
+  .container {
+    max-width: 100%;
+    padding-inline: 2.4rem;
+
+    header {
+      padding: 3.2rem 0 2.4rem;
+    }
+
+    main {
+      .calculator {
+        padding: 2.4rem;
+
+        .calculator-metric {
+          flex-direction: column;
+        }
+
+        .welcome-calculate,
+        .calculate {
+          display: flex;
+          flex-direction: column;
+          border-radius: 16px;
+        }
+      }
+    }
+  }
+
+  section.your-result {
+    display: flex;
+    flex-direction: column;
+    gap: 4.8rem;
+    margin-top: 9.6rem;
+
+    img {
+      display: none;
+    }
+
+    .healthy-tips {
+      margin-top: 0;
+      align-items: flex-start;
+
+      h2 {
+        font-size: 3.2rem;
+      }
+
+      p {
+        text-align: justify;
+      }
+    }
+  }
+
+  section.tips {
+    margin-top: 7.2rem;
+  }
+
+  section.bmi-limitations {
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+
+    .resume {
+      margin-bottom: 5rem;
+    }
+
+    .cols {
+      max-width: 100%;
+    }
+    .col-f {
+      display: flex;
+      flex-direction: column;
+      gap: 1.6rem;
+      z-index: 5;
+    }
+  }
+}
