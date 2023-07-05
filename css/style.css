@@ -299,7 +299,7 @@ main::after {
   background-image: url("data:image/svg+xml,%3Csvg width='87' height='202' viewBox='0 0 87 202' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M83.4298 1C91.2613 42.6999 85.7395 141.08 1 201' stroke='%23ACC1DE'/%3E%3C/svg%3E%0A");
 }
 
-img.sushiman {
+div img.sushimanman {
   display: none;
 }
 
@@ -322,7 +322,7 @@ section.your-result .healthy-tips h2 {
   font-size: 4.8rem;
 }
 
-section.tips {
+div.tips {
   max-width: 139.2rem;
   margin: 0 auto;
   margin-top: 9.6rem;
@@ -330,16 +330,16 @@ section.tips {
   border-radius: 35px;
   background: linear-gradient(135deg, rgba(214, 230, 254, 0.1) 10%, rgba(214, 230, 254, 0.25) 100%);
 }
-section.tips .container {
+div.tips .container {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 3.2rem;
 }
-section.tips .container .card img {
+div.tips .container .card img {
   margin-bottom: 4.5rem;
 }
-section.tips .container .card h3 {
+div.tips .container .card h3 {
   margin-bottom: 2.4rem;
   font-size: 2.4rem;
 }
@@ -405,7 +405,7 @@ section.bmi-limitations .last-line {
     top: 0;
     left: 0;
   }
-  img.sushiman {
+  div img.sushimanman {
     display: none;
   }
   .container {
@@ -455,27 +455,27 @@ section.bmi-limitations .last-line {
   section.your-result .healthy-tips p {
     text-align: justify;
   }
-  section.tips {
+  div.tips {
     padding: 0;
     padding-block: 6rem;
   }
-  section.tips .container {
+  div.tips .container {
     flex-direction: column;
     gap: 4rem;
   }
-  section.tips .container .card {
+  div.tips .container .card {
     display: flex;
     gap: 4rem;
   }
-  section.tips .container .card img {
+  div.tips .container .card img {
     margin-bottom: 0;
   }
-  section.tips .container .card div {
+  div.tips .container .card div {
     display: flex;
     gap: 2.4rem;
     flex-direction: column;
   }
-  section.tips .container .card div h3 {
+  div.tips .container .card div h3 {
     margin-bottom: 0;
   }
   section.bmi-limitations {
@@ -524,7 +524,7 @@ section.bmi-limitations .last-line {
     height: 64rem;
     display: none;
   }
-  img.sushiman {
+  div img.sushimanman {
     display: block;
     width: 100%;
   }
@@ -566,7 +566,7 @@ section.bmi-limitations .last-line {
   section.your-result .healthy-tips p {
     text-align: justify;
   }
-  section.tips {
+  div.tips {
     margin-top: 7.2rem;
   }
   section.bmi-limitations {

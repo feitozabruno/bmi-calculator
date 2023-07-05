@@ -351,7 +351,7 @@ main::after {
   background-image: url("data:image/svg+xml,%3Csvg width='87' height='202' viewBox='0 0 87 202' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M83.4298 1C91.2613 42.6999 85.7395 141.08 1 201' stroke='%23ACC1DE'/%3E%3C/svg%3E%0A");
 }
 
-img.sushiman {
+div img.sushimanman {
   display: none;
 }
 
@@ -376,7 +376,7 @@ section.your-result {
   }
 }
 
-section.tips {
+div.tips {
   max-width: 139.2rem;
   margin: 0 auto;
   margin-top: 9.6rem;
@@ -477,7 +477,7 @@ section.bmi-limitations {
     left: 0;
   }
 
-  img.sushiman {
+  div img.sushimanman {
     display: none;
   }
 
@@ -540,7 +540,7 @@ section.bmi-limitations {
     }
   }
 
-  section.tips {
+  div.tips {
     padding: 0;
     padding-block: 6rem;
 
@@ -627,7 +627,7 @@ section.bmi-limitations {
     display: none;
   }
 
-  img.sushiman {
+  div img.sushimanman {
     display: block;
     width: 100%;
   }
@@ -682,7 +682,7 @@ section.bmi-limitations {
     }
   }
 
-  section.tips {
+  div.tips {
     margin-top: 7.2rem;
   }
 
